@@ -1,4 +1,4 @@
-# CT Simulation — System Datasheet
+# CT Simulation : System Datasheet
 
 ## 1. Purpose & Scope
 This document is the single reference for the physical, geometric, and
@@ -14,7 +14,7 @@ these values unless a change is logged in the Change Log below.
 > parameters, where manufacturer data is not public, were chosen
 > independently by the project team for simulation purposes. Any
 > resemblance to a specific commercial system's full spec sheet is
-> coincidental — exact manufacturer specifications are not the goal here.
+> coincidental exact manufacturer specifications are not the goal here.
 
 ## 3. X-ray Source Specifications
 | Parameter | Value | Unit | Source | Notes |

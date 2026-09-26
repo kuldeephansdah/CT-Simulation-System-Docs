@@ -124,11 +124,6 @@ properly cited.
 | Spectrum model | TBD | Mono vs polychromatic — **ask X-ray Source team** |
 
 ## 7. Detector Specifications
-> ⚠️ Siemens Force is **dual-source** (2× curved detector arrays, 384 total
-> acquired slices). Our sim is single-source — do **not** copy the row/slice
-> counts directly. Detector team should pick a single-array-equivalent
-> design and document why.
-
 | Parameter | Value | Notes |
 |---|---|---|
 | Detector type | TBD | Scintillator vs photon-counting — **ask Detector team** |
@@ -160,10 +155,10 @@ properly cited.
 ## 10. Post-Processing Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| HU calibration approach | TBD | **ask Post Processing team** |
-| Filters applied | TBD | Noise reduction / ring artifact correction |
-| Output format | TBD | DICOM / NumPy / PNG |
-| Dynamic range to support | TBD | Siemens ref spans exactly 65,535 (2¹⁶−1) HU values (-8,192 to +57,343) — worth considering a matching bit-depth/offset scheme |
+| HU calibration approach | Water/air-based calibration | Air - 1000 HU, Water - 0 HU |
+| Filters applied | BMD + 3D U-Net | Evaluated as separate denoising methods |
+| Output format | Numpy+DICOM | NumPy for ML, DICOM for CT output |
+| Dynamic range to support | -8192 to +57343 HU | 16-bit range/offset to be confirmed |
 
 ## 11. Radiation Dose Measurement Specifications
 | Parameter | Value | Notes |

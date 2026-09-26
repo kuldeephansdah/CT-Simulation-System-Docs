@@ -126,11 +126,11 @@ properly cited.
 ## 7. Detector Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| Detector type | TBD | Scintillator vs photon-counting — **ask Detector team** |
-| Number of physical rows | TBD | Siemens ref (single array): 192 rows — use as an upper-bound reference, not a target |
-| Pixel pitch | TBD | **ask Detector team** |
+| Detector type | Scintillator (EID) | Scintillator vs photon-counting — **ask Detector team** |
+| Number of physical rows | 64 | Siemens ref (single array): 192 rows — use as an upper-bound reference, not a target |
+| Pixel pitch | 0.625mm | **ask Detector team** |
 | z-coverage at isocenter | TBD | Siemens single-array equivalent ≈ 28.8mm (57.6/2) — reference only |
-| In-plane channels | TBD | Siemens ref: 3,120 total (dual-array) |
+| In-plane channels | 888 single array | Siemens ref: 3,120 total (dual-array) |
 | Target in-plane resolution | TBD | Siemens ref: 0.24 mm (22–32 lp/cm @ 0% MTF) |
 
 ## 8. Tissue Interaction / Phantom Specifications

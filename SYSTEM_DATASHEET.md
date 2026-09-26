@@ -9,50 +9,101 @@ these values unless a change is logged in the Change Log below.
 
 ## 2. Reference System Basis & Disclaimer
 > This system is **not** a reproduction of any specific commercial CT
-> scanner. Select parameters (see notes below) were informed by publicly
-> available specifications from GE Healthcare and Siemens scanners; other
+> scanner. Select parameters were informed by publicly available
+> specifications from real scanners — specifically a **Siemens SOMATOM
+> Force** (dual-source) reference datasheet (Section 3) and, where
+> available, GE Healthcare specifications (Section 4, pending). Other
 > parameters, where manufacturer data is not public, were chosen
-> independently by the project team for simulation purposes. Any
-> resemblance to a specific commercial system's full spec sheet is
-> coincidental exact manufacturer specifications are not the goal here.
+> independently by the project team for simulation purposes. Our simulated
+> system is **single-source**, so any dual-source-specific reference value
+> (e.g. detector row counts, temporal resolution, dual-energy modes) is
+> used only as a design *reference range*, not copied directly — this is
+> called out explicitly wherever it applies.
 
-## 3. X-ray Source Specifications
-| Parameter | Value | Unit | Source | Notes |
-|---|---|---|---|---|
-| Tube voltage (kVp) | 120.0 | kVp | CT Config repo default | |
-| Tube current | 200.0 | mA | CT Config repo default | |
-| Tube current range | 60 – 660 | mA | CT Config repo default | Used for TCM clamping |
-| Exposure time | 1.0 | s | CT Config repo default | |
-| Total mAs | 200.0 | mAs | CT Config repo default | |
-| Focal spot size | TBD | mm | — | **Ask X-ray Source team** |
-| Anode angle | TBD | degrees | — | **Ask X-ray Source team** |
-| Target material | TBD (commonly W) | — | — | **Ask X-ray Source team** |
-| Added filtration | TBD | mm Al/Cu eq. | — | **Ask X-ray Source team** |
-| Spectrum model | TBD | mono/poly | — | **Ask X-ray Source team** |
+---
 
-## 4. Geometry & Acquisition Configuration
+## 3. Reference System 1 — Siemens SOMATOM Force (Dual-Source CT)
+*(Source: Siemens SOMATOM Force Reference Datasheet, provided to the project team)*
+
+### 3.1 System Geometry & Gantry Mechanics
+| Parameter | Value | Notes |
+|---|---|---|
+| Gantry bore size | 78 cm | |
+| Minimal rotation time | 0.25 s | |
+| Max scan speed | 737 mm/s | Flash Spiral mode only |
+| Source-to-Isocenter (R) | 53.5 cm | |
+| Source-to-Detector (D) | 97.6 cm | |
+| Temporal resolution | 66 ms | Dual-source specific — N/A for our single-source sim |
+
+### 3.2 X-Ray Generation (Dual Vectron™)
+| Parameter | Value |
+|---|---|
+| Configuration | 2× tubes at ~95° separation |
+| Total power | 240 kW (2× 120 kW) |
+| Tube voltage | 70–150 kV (10 kV steps) |
+| Tube current | 20–1300 mA per tube |
+| Focal spot | 0.4×0.5 mm (Small) / 0.8×1.1 mm (Large) |
+
+### 3.3 Detector Array (Stellar Infinity™)
+| Parameter | Value |
+|---|---|
+| Type | 2× Curved Ultra-Fast Ceramic (UFC) arrays |
+| Physical rows | 192 rows per detector (2× 96 physical) |
+| Acquired slices | 384 per rotation (2× 192) |
+| z-coverage at isocenter | 57.6 mm |
+| In-plane channels | 3,120 total |
+
+### 3.4 Helical Trajectory & Reconstruction
+| Parameter | Value |
+|---|---|
+| Pitch factor range | 0.15–3.2 (Flash Spiral up to 3.4) |
+| Primary sFOV | 50 cm (extended up to 78 cm) |
+| Secondary sFOV | 35–50 cm (dual energy) |
+| Max scan length | 200 cm |
+| Dual energy | Simultaneous 80/140 kV or 90/150 kV |
+| In-plane resolution | 0.24 mm (22–32 lp/cm @ 0% MTF) |
+| Min. reconstructed slice thickness | 0.4 mm |
+| Matrix sizes | 512×512 / 768×768 / 1024×1024 |
+| Reconstruction algorithms | 3D Helical FDK / ADMIRE Iterative |
+| Dynamic range | -8,192 HU to +57,343 HU (span = 65,535 = 2¹⁶−1) |
+
+---
+
+## 4. Reference System 2 — GE Healthcare
+**Status: TBD.** No GE datasheet has been provided yet. If a value below is
+attributed to "GE Healthcare," it came from a team member's own research —
+upload the source datasheet here (same format as Section 3) so it can be
+properly cited.
+
+---
+
+## 5. Our Simulated System — Actual Configuration
 *(Source: CT Configuration team repo, `ct_configuration.py` defaults)*
 
-| Parameter | Value | Unit |
-|---|---|---|
-| Scan geometry | Helical | — |
-| Source-to-Isocenter Distance (SID) | 541.0 | mm |
-| Source-to-Detector Distance (SDD) | 949.0 | mm |
-| Bore diameter | 820.0 | mm |
-| Display FOV | 500.0 | mm |
-| Rotation time | 0.28 | s |
-| Rotation angle | 360.0 | deg |
-| Views per rotation | 984 | — |
-| Pitch | 0.516 | — |
-| Collimation | 40.0 | mm |
-| Scan range | 350.0 | mm |
-| TCM enabled | Yes | — |
-| TCM modulation depth | 25 | % |
+| Parameter | Our Value | Siemens Force Reference | Comparison |
+|---|---|---|---|
+| Scan geometry | Helical | Helical | Match |
+| SID | 541.0 mm | 535 mm | +1.1% |
+| SDD | 949.0 mm | 976 mm | −2.8% |
+| Geometric magnification | 1.754 | 1.824 | −3.8% |
+| Bore diameter | 820.0 mm | 780 mm | +5.1% |
+| Display FOV | 500.0 mm | 500 mm (primary sFOV) | Exact match |
+| Rotation time | 0.28 s | 0.25 s (minimal) | Close, slightly slower |
+| Rotation angle | 360° | 360° | Match |
+| Views per rotation | 984 | — | — |
+| Tube voltage (kVp) | 120.0 | 70–150 (range) | Within range |
+| Tube current | 200.0 mA | 20–1300 mA/tube (range) | Within range |
+| Tube current range | 60–660 mA | 20–1300 mA/tube | Narrower (single-source) |
+| Exposure time | 1.0 s | — | — |
+| Pitch | 0.516 | 0.15–3.2 (range) | Within range |
+| Collimation | 40.0 mm | — (57.6mm z-cov, dual) | Not directly comparable |
+| Scan range | 350.0 mm | up to 2000 mm (max) | Within range |
+| TCM enabled | Yes | — | — |
+| TCM modulation depth | 25% | — | — |
 
 **Derived parameters** (computed with the same formulas as the config module):
 | Parameter | Formula | Value |
 |---|---|---|
-| Geometric magnification | SDD / SID | 1.754 |
 | Angular increment | 360° / 984 | 0.3659° |
 | Table feed / rotation | Pitch × Collimation | 20.64 mm |
 | Table speed | Table feed / rotation time | 73.71 mm/s |
@@ -60,50 +111,69 @@ these values unless a change is logged in the Change Log below.
 | Total scan time | rotations × rotation time | 4.76 s |
 | Total projection views | rotations × views/rotation | 16,728 |
 
-## 5. Detector Specifications
+---
+
+## 6. X-ray Source Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| Detector type | TBD | scintillator vs photon-counting — **Ask Detector team** |
-| Number of rows | TBD | — |
-| Number of channels | TBD | — |
-| Pixel pitch | TBD | mm — **Ask Detector team** |
-| Quantum efficiency | TBD | — |
-| ADC bit depth | TBD | — |
+| kVp (operating) | 120.0 | Within Siemens Force's 70–150 kV range |
+| Focal spot size | TBD | Reference range: 0.4×0.5mm (S) / 0.8×1.1mm (L) — **ask X-ray Source team to pick and justify** |
+| Anode angle | TBD | **Ask X-ray Source team** |
+| Target material | TBD (commonly tungsten) | **Ask X-ray Source team** |
+| Added filtration | TBD | mm Al/Cu equivalent — **ask X-ray Source team** |
+| Spectrum model | TBD | Mono vs polychromatic — **ask X-ray Source team** |
 
-## 6. Tissue Interaction / Phantom Specifications
+## 7. Detector Specifications
+> ⚠️ Siemens Force is **dual-source** (2× curved detector arrays, 384 total
+> acquired slices). Our sim is single-source — do **not** copy the row/slice
+> counts directly. Detector team should pick a single-array-equivalent
+> design and document why.
+
+| Parameter | Value | Notes |
+|---|---|---|
+| Detector type | TBD | Scintillator vs photon-counting — **ask Detector team** |
+| Number of physical rows | TBD | Siemens ref (single array): 192 rows — use as an upper-bound reference, not a target |
+| Pixel pitch | TBD | **ask Detector team** |
+| z-coverage at isocenter | TBD | Siemens single-array equivalent ≈ 28.8mm (57.6/2) — reference only |
+| In-plane channels | TBD | Siemens ref: 3,120 total (dual-array) |
+| Target in-plane resolution | TBD | Siemens ref: 0.24 mm (22–32 lp/cm @ 0% MTF) |
+
+## 8. Tissue Interaction / Phantom Specifications
 | Parameter | Value | Notes |
 |---|---|---|
 | Current phantom | Dummy cylinder voxel model | Placeholder — professor has not yet supplied the final voxel dataset |
-| Cylinder dimensions | TBD | **Ask Tissue Interaction team** |
-| Material / density assigned | TBD | **Ask Tissue Interaction team** |
-| Attenuation coefficient source | TBD | e.g. NIST tables — **Ask Tissue Interaction team** |
-| Interaction model | TBD | Beer-Lambert only / + Compton + photoelectric — **Ask Tissue Interaction team** |
-| Scatter modeled? | TBD | Yes/No — **Ask Tissue Interaction team** |
+| Cylinder dimensions | TBD | **ask Tissue Interaction team** |
+| Material / density assigned | TBD | **ask Tissue Interaction team** |
+| Attenuation coefficient source | TBD | e.g. NIST tables — **ask Tissue Interaction team** |
+| Interaction model | TBD | Beer-Lambert only / + Compton + photoelectric — **ask Tissue Interaction team** |
+| Scatter modeled? | TBD | **ask Tissue Interaction team** |
 
-## 7. Reconstruction Specifications
+## 9. Reconstruction Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| Algorithm | TBD | FDK / FBP / iterative — **Ask Reconstruction team** |
-| Reconstruction kernel | TBD | — |
-| Output matrix size | TBD | — |
-| Slice thickness | TBD | — |
-| Helical rebinning/interpolation | TBD | — |
+| Algorithm | TBD | Siemens ref uses 3D Helical FDK / ADMIRE Iterative — **FDK (Feldkamp-Davis-Kress) is a natural fit** since we already use helical cone-beam geometry — confirm with Reconstruction team |
+| Reconstruction kernel | TBD | **ask Reconstruction team** |
+| Output matrix size | TBD | Siemens ref options: 512×512 / 768×768 / 1024×1024 |
+| Slice thickness | TBD | Siemens ref minimum: 0.4 mm |
+| Helical rebinning/interpolation | TBD | **ask Reconstruction team** |
 
-## 8. Post-Processing Specifications
+## 10. Post-Processing Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| HU calibration approach | TBD | **Ask Post Processing team** |
-| Filters applied | TBD | noise reduction / ring artifact correction |
+| HU calibration approach | TBD | **ask Post Processing team** |
+| Filters applied | TBD | Noise reduction / ring artifact correction |
 | Output format | TBD | DICOM / NumPy / PNG |
+| Dynamic range to support | TBD | Siemens ref spans exactly 65,535 (2¹⁶−1) HU values (-8,192 to +57,343) — worth considering a matching bit-depth/offset scheme |
 
-## 9. Radiation Dose Measurement Specifications
+## 11. Radiation Dose Measurement Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| Dose metrics computed | TBD | CTDIvol / DLP / effective dose — **Ask Dose team** |
+| Dose metrics computed | TBD | CTDIvol / DLP / effective dose — **ask Dose team** |
 | Reference dose phantom | TBD | e.g. 16 cm / 32 cm CTDI phantom equivalent |
 | Method | TBD | Analytical vs Monte Carlo |
 
-## 10. Change Log
+## 12. Change Log
 | Date | Change | Author |
 |---|---|---|
-| 26-09-2026 | Initial datasheet created from CT Configuration repo defaults | Kuldeep Hansdah, Subham Kumar Beura |
+| YYYY-MM-DD | Initial datasheet created from CT Configuration repo defaults | <your name> |
+| YYYY-MM-DD | Added Siemens SOMATOM Force reference datasheet (Section 3) and comparison table (Section 5) | <your name> |

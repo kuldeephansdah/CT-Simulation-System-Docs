@@ -106,4 +106,4 @@ these values unless a change is logged in the Change Log below.
 ## 10. Change Log
 | Date | Change | Author |
 |---|---|---|
-| YYYY-MM-DD | Initial datasheet created from CT Configuration repo defaults | <your name> |
+| 26-09-2026 | Initial datasheet created from CT Configuration repo defaults | Kuldeep Hansdah, Subham Kumar Beura |

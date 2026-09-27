@@ -70,36 +70,33 @@ these values unless a change is logged in the Change Log below.
 ---
 
 ## 4. Reference System 2 — GE Healthcare
-**Status: TBD.** No GE datasheet has been provided yet. If a value below is
-attributed to "GE Healthcare," it came from a team member's own research —
-upload the source datasheet here (same format as Section 3) so it can be
-properly cited.
+
 
 ---
 
 ## 5. Our Simulated System — Actual Configuration
 *(Source: CT Configuration team repo, `ct_configuration.py` defaults)*
 
-| Parameter | Our Value | Siemens Force Reference | Comparison |
+| Parameter | Our Value | Siemens Force Reference | GE Healthcare Reference |
 |---|---|---|---|
-| Scan geometry | Helical | Helical | Match |
-| SID | 541.0 mm | 535 mm | +1.1% |
-| SDD | 949.0 mm | 976 mm | −2.8% |
-| Geometric magnification | 1.754 | 1.824 | −3.8% |
-| Bore diameter | 820.0 mm | 780 mm | +5.1% |
-| Display FOV | 500.0 mm | 500 mm (primary sFOV) | Exact match |
-| Rotation time | 0.28 s | 0.25 s (minimal) | Close, slightly slower |
-| Rotation angle | 360° | 360° | Match |
-| Views per rotation | 984 | — | — |
-| Tube voltage (kVp) | 120.0 | 70–150 (range) | Within range |
-| Tube current | 200.0 mA | 20–1300 mA/tube (range) | Within range |
-| Tube current range | 60–660 mA | 20–1300 mA/tube | Narrower (single-source) |
-| Exposure time | 1.0 s | — | — |
-| Pitch | 0.516 | 0.15–3.2 (range) | Within range |
-| Collimation | 40.0 mm | — (57.6mm z-cov, dual) | Not directly comparable |
-| Scan range | 350.0 mm | up to 2000 mm (max) | Within range |
-| TCM enabled | Yes | — | — |
-| TCM modulation depth | 25% | — | — |
+| Scan geometry | Helical | Helical |  |
+| SID | 541.0 mm | 535 mm |  |
+| SDD | 949.0 mm | 976 mm |  |
+| Geometric magnification | 1.754 | 1.824 |  |
+| Bore diameter | 820.0 mm | 780 mm |  |
+| Display FOV | 500.0 mm | 500 mm (primary sFOV) |  |
+| Rotation time | 0.28 s | 0.25 s (minimal) |  |
+| Rotation angle | 360° | 360° |  |
+| Views per rotation | 984 | — |  |
+| Tube voltage (kVp) | 120.0 | 70–150 (range) |  |
+| Tube current | 200.0 mA | 20–1300 mA/tube (range) |  |
+| Tube current range | 60–660 mA | 20–1300 mA/tube |  |
+| Exposure time | 1.0 s | — |  |
+| Pitch | 0.516 | 0.15–3.2 (range) |  |
+| Collimation | 40.0 mm | — (57.6mm z-cov, dual) |  |
+| Scan range | 350.0 mm | up to 2000 mm (max) |  |
+| TCM enabled | Yes | — |  |
+| TCM modulation depth | 25% | — |  |
 
 **Derived parameters** (computed with the same formulas as the config module):
 | Parameter | Formula | Value |

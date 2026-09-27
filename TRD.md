@@ -138,27 +138,6 @@ Radiation Dose Measurement — independent track
 
 ---
 
-## 5. Interface Contracts / Shared Data Schema
-
-The Tissue Interaction and Detector teams have already converged on a de
-facto config convention worth formalizing project-wide:
-
-    {
-      "1_source_team": { "kvp": 120.0 },
-      "3_detector_team": { "detector_rows": 64, "detector_channels": 888 },
-      "4_system_config_team": { "sid_mm": 541.0, "sdd_mm": 949.0 }
-    }
-
-Recommendation: adopt this (or a renamed, cleaned-up version) as the single
-shared `system_config.json`, sourced directly from the CT Configuration
-team's repo, so every module reads the same file instead of each team
-maintaining its own copy. The Detector team's `.npz` + `_metadata.json`
-handoff pattern is the cleanest existing example of a data contract —
-recommend other module boundaries (Tissue Interaction to Detector,
-Reconstruction to Post-Processing) adopt the same pattern.
-
----
-
 ## 6. Change Log
 | Date | Change | Author |
 |---|---|---|

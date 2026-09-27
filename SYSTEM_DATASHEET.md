@@ -136,12 +136,14 @@ properly cited.
 ## 8. Tissue Interaction / Phantom Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| Current phantom | Dummy cylinder voxel model | Placeholder — professor has not yet supplied the final voxel dataset |
-| Cylinder dimensions | TBD | **ask Tissue Interaction team** |
-| Material / density assigned | TBD | **ask Tissue Interaction team** |
-| Attenuation coefficient source | TBD | e.g. NIST tables — **ask Tissue Interaction team** |
-| Interaction model | TBD | Beer-Lambert only / + Compton + photoelectric — **ask Tissue Interaction team** |
-| Scatter modeled? | TBD | **ask Tissue Interaction team** |
+| Current phantom | Dummy cylinder voxel model | generated using the cylinder voxel model; final voxel dataset not yet supplied |
+| Cylinder dimensions (radius) | 25mm | - |
+| Cylinder dimensions (height) | 50mm | - |
+| Cylinder dimensions (voxel size) | 1mm | - |
+| Material / density assigned | Soft tissue -- taken from xraylib library | dummy phantom uses material ID 1 with density 1.0 g/cm³ |
+| Attenuation coefficient source | xraylib / NIST data | total energy-dependent mass attenuation coefficient obtained using CS_Total_CP() |
+| Interaction model | Beer–Lambert law | Beer–Lambert law with energy-dependent total attenuation : \(I(E)=I_0(E)e^{-\mu(E)L}\), with \(\mu(E)=(\mu/\rho)\rho\) |
+| Scatter modeled | No  | explicit Compton/Rayleigh scattering is not separately simulated; the current model uses total attenuation |
 
 ## 9. Reconstruction Specifications
 | Parameter | Value | Notes |

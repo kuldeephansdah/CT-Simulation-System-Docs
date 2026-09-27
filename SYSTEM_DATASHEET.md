@@ -10,14 +10,14 @@ these values unless a change is logged in the Change Log below.
 ## 2. Reference System Basis & Disclaimer
 > This system is **not** a reproduction of any specific commercial CT
 > scanner. Select parameters were informed by publicly available
-> specifications from real scanners — specifically a **Siemens SOMATOM
+> specifications from real scanners specifically a **Siemens SOMATOM
 > Force** (dual-source) reference datasheet (Section 3) and, where
 > available, GE Healthcare specifications (Section 4, pending). Other
 > parameters, where manufacturer data is not public, were chosen
 > independently by the project team for simulation purposes. Our simulated
 > system is **single-source**, so any dual-source-specific reference value
 > (e.g. detector row counts, temporal resolution, dual-energy modes) is
-> used only as a design *reference range*, not copied directly — this is
+> used only as a design *reference range*, not copied directly this is
 > called out explicitly wherever it applies.
 
 ---

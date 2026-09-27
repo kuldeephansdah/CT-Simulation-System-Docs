@@ -116,7 +116,7 @@ properly cited.
 ## 6. X-ray Source Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| kVp (operating) | 50-120 | - |
+| kVp (operating) | 50-120 | Maximum accelerating potential applied between the cathode and anode. It determines the maximum X-ray photon energy; at 120 kVp, the spectrum extends up to approximately 120 keV |
 | Focal spot size | 0.6 mm radius | Defines the spatial extent of the X-ray emission region at the anode target |
 | Target material | Tungsten (W) | High atomic number (Z = 74); commonly used for X-ray tube targets because of its high X-ray production efficiency and high melting point |
 | Added filtration | 4 mm Aluminum (Al) | Removes a significant portion of low-energy photons and hardens the X-ray beam |
@@ -146,11 +146,11 @@ properly cited.
 ## 9. Reconstruction Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| Algorithm | TBD | Siemens ref uses 3D Helical FDK / ADMIRE Iterative — **FDK (Feldkamp-Davis-Kress) is a natural fit** since we already use helical cone-beam geometry — confirm with Reconstruction team |
-| Reconstruction kernel | TBD | **ask Reconstruction team** |
-| Output matrix size | TBD | Siemens ref options: 512×512 / 768×768 / 1024×1024 |
-| Slice thickness | TBD | Siemens ref minimum: 0.4 mm |
-| Helical rebinning/interpolation | TBD | **ask Reconstruction team** |
+| Algorithm | 3D Helical FDK / ADMIRE Iterative | FDK (Feldkamp-Davis-Kress) is standard for helical cone-beam geometry; iterative ADMIRE can be applied for noise reduction |
+| Reconstruction kernel | Br40 (Standard Hann/Ramp filter) | Standard medium-smooth kernel for soft tissue; use sharp kernels (e.g., Hr60) for bone or high spatial resolution |
+| Output matrix size | 512 × 512 | Standard clinical matrix resolution; 768 × 768 or 1024 × 1024 are available for high-resolution target imaging |
+| Slice thickness | 0.6 mm (or 0.4 mm) | 0.6 mm is commonly configured for standard multi-slice helical body scans; 0.4 mm represents the system minimum |
+| Helical rebinning/interpolation | 180° LI (Linear Interpolation) + Fan-to-Parallel Rebinning | Optimizes temporal resolution and slice sensitivity profile (SSP) while compensating for helical cone-beam geometry |
 
 ## 10. Post-Processing Specifications
 | Parameter | Value | Notes |

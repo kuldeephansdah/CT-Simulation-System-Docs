@@ -70,7 +70,54 @@ these values unless a change is logged in the Change Log below.
 ---
 
 ## 4. Reference System 2 — GE Healthcare
+*(Source: GE HealthCare Revolution CT / Apex Reference Datasheet, provided to the project team)*
 
+> **Note:** Unlike the Siemens Force, the GE Revolution CT is **single-source** —
+> architecturally closer to our simulated system. Where the two references
+> disagree, prefer this one for resolving single-source-specific design
+> questions (detector layout, tube configuration).
+
+### 4.1 System Geometry & Gantry Dynamics
+| Parameter | Value | Notes |
+|---|---|---|
+| Gantry bore size | 80 cm | - |
+| Minimal rotation time | 0.28 s / 0.23 s | Apex platform reaches 0.23 s |
+| Max table speed | 437.5 mm/s | HyperDrive helical mode |
+| Source-to-Isocenter (R) | ~53.5 cm | - |
+| Source-to-Detector (D) | ~95.0 cm | - |
+| Cone beam angle | ±9.1° | Wide-angle; requires 3D Katsevich correction |
+
+### 4.2 X-Ray Generation (Quantix™ 160)
+| Parameter | Value |
+|---|---|
+| Configuration | Single liquid-bearing high-power tube |
+| Generator power | 120–130 kW continuous |
+| Tube voltages | 70, 80, 100, 120, 140 kV (discrete steps) |
+| Tube current | 10–1300 mA (5 mA increments) |
+| Fast kV-switching | 80 ↔ 140 kV every 0.25 ms |
+
+### 4.3 Detector Array (Gemstone Clarity)
+| Parameter | Value |
+|---|---|
+| Material | Ultra-fast Gemstone™ scintillator (0.03 µs) |
+| z-coverage at isocenter | 160 mm (16 cm) |
+| Physical grid | 256 rows × 896 channels/row |
+| Total channels | Over 229,376 |
+| Min. slice thickness | 0.625 mm |
+
+### 4.4 Helical Trajectory & Reconstruction
+| Parameter | Value |
+|---|---|
+| Volumetric mode | 16 cm axial single-rotation organ coverage |
+| Pitch factor range | 0.15–1.531 |
+| Max scan length | 2000 mm |
+| Spectral mode | Fast single-tube pulse-by-pulse kV switching |
+| Temporal window | 29 ms (SnapShot Freeze) |
+| In-plane resolution | 0.23 mm (18.2 lp/cm, z-direction) |
+| Matrix sizes | 512×512 / 1024×1024 |
+| Reconstruction algorithms | TrueFidelity™ DL / 3D Katsevich FDK |
+| Reconstruction speed | Up to 80 images/sec |
+| Noise mitigation | Volara™ Modular DAS |
 
 ---
 
@@ -79,24 +126,30 @@ these values unless a change is logged in the Change Log below.
 
 | Parameter | Our Value | Siemens Force Reference | GE Healthcare Reference |
 |---|---|---|---|
-| Scan geometry | Helical | Helical |  |
-| SID | 541.0 mm | 535 mm |  |
-| SDD | 949.0 mm | 976 mm |  |
-| Geometric magnification | 1.754 | 1.824 |  |
-| Bore diameter | 820.0 mm | 780 mm |  |
-| Display FOV | 500.0 mm | 500 mm (primary sFOV) |  |
-| Rotation time | 0.28 s | 0.25 s (minimal) |  |
-| Rotation angle | 360° | 360° |  |
-| Views per rotation | 984 | - |  |
-| Tube voltage (kVp) | 120.0 | 70–150 (range) |  |
-| Tube current | 200.0 mA | 20–1300 mA/tube (range) |  |
-| Tube current range | 60–660 mA | 20–1300 mA/tube |  |
-| Exposure time | 1.0 s | - |  |
-| Pitch | 0.516 | 0.15–3.2 (range) |  |
-| Collimation | 40.0 mm | - (57.6mm z-cov, dual) |  |
-| Scan range | 350.0 mm | up to 2000 mm (max) |  |
-| TCM enabled | Yes | - |  |
-| TCM modulation depth | 25% | - |  |
+| Scan geometry | Helical | Helical | Helical / Volumetric Cone-Beam |
+| SID | 541.0 mm | 535 mm | ~535 mm |
+| SDD | 949.0 mm | 976 mm | ~950 mm |
+| Geometric magnification | 1.754 | 1.824 | 1.776 |
+| Bore diameter | 820.0 mm | 780 mm | 800 mm |
+| Display FOV | 500.0 mm | 500 mm (primary sFOV) | Not specified (16 cm z-coverage given instead) |
+| Rotation time | 0.28 s | 0.25 s (minimal) | 0.28 s / 0.23 s (Apex) |
+| Rotation angle | 360° | 360° | 360° |
+| Views per rotation | 984 | - | - |
+| Tube voltage (kVp) | 120.0 | 70–150 (range) | 70/80/100/120/140 (discrete steps) |
+| Tube current | 200.0 mA | 20–1300 mA/tube (range) | 10–1300 mA (5 mA increments) |
+| Tube current range | 60–660 mA | 20–1300 mA/tube | 10–1300 mA |
+| Exposure time | 1.0 s | - | - |
+| Pitch | 0.516 | 0.15–3.2 (range) | 0.15–1.531 (range) |
+| Collimation | 40.0 mm | - (57.6mm z-cov, dual) | - (160mm z-cov at isocenter) |
+| Scan range | 350.0 mm | up to 2000 mm (max) | up to 2000 mm (max) |
+| TCM enabled | Yes | - | - |
+| TCM modulation depth | 25% | - | - |
+
+**Key observations:**
+- Our rotation time (0.28 s) matches GE Revolution's baseline exactly.
+- Our kVp (120) lands exactly on one of GE's discrete voltage steps.
+- Our SDD (949 mm) is nearly identical to GE's (~950 mm), and close to Siemens' (976 mm).
+- Our SID sits almost exactly between both references (535 mm Siemens/GE vs our 541 mm).
 
 **Derived parameters** (computed with the same formulas as the config module):
 | Parameter | Formula | Value |
@@ -168,4 +221,4 @@ these values unless a change is logged in the Change Log below.
 ## 12. Change Log
 | Date | Change | Author |
 |---|---|---|
-| 27-09-2026 | Updated radiation dose measurement specifications with calculated values and added details about the reference dose phantom and method used | Kuldeep Hansdah, Subham Kumar Beura |
+| 27-09-2026 | Added detailed specifications for GE Healthcare Revolution CT, including system geometry, X-ray generation, detector array, and helical trajectory. Updated our simulated system configuration with comparisons to GE and Siemens references | Kuldeep Hansdah, Subham Kumar Beura |

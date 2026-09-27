@@ -74,7 +74,7 @@ these values unless a change is logged in the Change Log below.
 
 ---
 
-## 5. Our Simulated System — Actual Configuration
+## 5. Our Simulated System Configuration
 *(Source: CT Configuration team repo, `ct_configuration.py` defaults)*
 
 | Parameter | Our Value | Siemens Force Reference | GE Healthcare Reference |

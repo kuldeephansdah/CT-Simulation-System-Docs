@@ -142,7 +142,7 @@ properly cited.
 | Cylinder dimensions (voxel size) | 1mm | - |
 | Material / density assigned | Soft tissue -- taken from xraylib library | dummy phantom uses material ID 1 with density 1.0 g/cm³ |
 | Attenuation coefficient source | xraylib / NIST data | total energy-dependent mass attenuation coefficient obtained using CS_Total_CP() |
-| Interaction model | Beer–Lambert law | Beer–Lambert law with energy-dependent total attenuation : \(I(E)=I_0(E)e^{-\mu(E)L}\), with \(\mu(E)=(\mu/\rho)\rho\) |
+| Interaction model | Beer–Lambert law | Beer–Lambert law with energy-dependent total attenuation : $I(E) = I_0(E)e^{-\mu(E)L}$, with $\mu(E) = (\mu/\rho)\rho$ |
 | Scatter modeled | No  | explicit Compton/Rayleigh scattering is not separately simulated; the current model uses total attenuation |
 
 ## 9. Reconstruction Specifications

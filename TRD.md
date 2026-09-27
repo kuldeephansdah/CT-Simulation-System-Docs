@@ -71,7 +71,7 @@ Radiation Dose Measurement — independent track
 | Radiation Dose Measurement | C++ (Geant4, CMake) | Geant4 toolkit |
 
 > **Note:** 6 of 7 modules are Python/NumPy. Radiation Dose Measurement is a
-> separately compiled C++/Geant4 codebase — it cannot be imported directly
+> separately compiled C++/Geant4 codebase it cannot be imported directly
 > into the Python pipeline. If end-to-end integration is required, define an
 > explicit file-based hand-off (e.g. Geant4 exports dose results as CSV/JSON
 > that Python reads).

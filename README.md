@@ -2,7 +2,7 @@
 
 A from-scratch, educational simulation of the full computed-tomography
 imaging chain: X-ray generation, tissue interaction, detection,
-reconstruction, post-processing, and radiation dose estimation — built
+reconstruction, post-processing, and radiation dose estimation built
 across 7 independently-owned modules and integrated into one pipeline.
 
 > **Note:** This is not a reproduction of any specific commercial CT

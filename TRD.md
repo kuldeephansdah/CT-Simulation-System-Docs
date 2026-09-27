@@ -105,7 +105,7 @@ Radiation Dose Measurement — independent track
 | Config | 64 rows x 888 channels, 0.625mm pixel pitch, 555x40mm active area, energy-integrating type, GOS-mapped scintillator, 40mm collimation |
 | Physics modeled | Quantum efficiency (Beer-Lambert x fill factor), MTF/DQE, conversion gain (50 e-/keV), electronic noise (500 e-), Gaussian PSF blur, gain nonuniformity, dead pixels |
 | Outputs | detector_handoff_package.npz (measured_signal_electrons, reference_signal_electrons, gain_map, dead_pixel_map, angles_deg) + _metadata.json with normalization convention: line_integral = -ln(measured/reference) |
-| Status | Full physics chain implemented; also includes a standalone FBP demo (ct_reconstruction.py) for self-testing only not the official Reconstruction deliverable (see Gap 4) |
+| Status | Full physics chain implemented; also includes a standalone FBP demo (ct_reconstruction.py) for self-testing only not the official Reconstruction deliverable |
 | Known limitation (team's own note) | Material attenuation tables are illustrative, not dosimetrically accurate; reconstruction demo assumes monochromatic-equivalent line integral (no beam-hardening correction) |
 
 ### 4.4 Reconstruction

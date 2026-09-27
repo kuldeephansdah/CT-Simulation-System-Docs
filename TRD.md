@@ -101,18 +101,18 @@ Radiation Dose Measurement — independent track
 ### 4.3 Detector
 | | |
 |---|---|
-| Inputs | Photon fluence per energy bin from Tissue Interaction (expected — see Gap 1) |
+| Inputs | Photon fluence per energy bin from Tissue Interaction |
 | Config | 64 rows x 888 channels, 0.625mm pixel pitch, 555x40mm active area, energy-integrating type, GOS-mapped scintillator, 40mm collimation |
 | Physics modeled | Quantum efficiency (Beer-Lambert x fill factor), MTF/DQE, conversion gain (50 e-/keV), electronic noise (500 e-), Gaussian PSF blur, gain nonuniformity, dead pixels |
 | Outputs | detector_handoff_package.npz (measured_signal_electrons, reference_signal_electrons, gain_map, dead_pixel_map, angles_deg) + _metadata.json with normalization convention: line_integral = -ln(measured/reference) |
-| Status | Full physics chain implemented; also includes a standalone FBP demo (ct_reconstruction.py) for self-testing only — not the official Reconstruction deliverable (see Gap 4) |
+| Status | Full physics chain implemented; also includes a standalone FBP demo (ct_reconstruction.py) for self-testing only not the official Reconstruction deliverable (see Gap 4) |
 | Known limitation (team's own note) | Material attenuation tables are illustrative, not dosimetrically accurate; reconstruction demo assumes monochromatic-equivalent line integral (no beam-hardening correction) |
 
 ### 4.4 Reconstruction
 | | |
 |---|---|
-| Inputs | Projection/sinogram (total_views, detector_rows, detector_channels) — documented example (180, 16, 1024) — see Gap 3; gantry angles (total_views,); CT geometry (SOD, SDD, pixel size, voxel size); ART iteration count + relaxation parameter |
-| Algorithm | Algebraic Reconstruction Technique (ART) — iterative, cone-beam forward projection + trilinear interpolation |
+| Inputs | Projection/sinogram (total_views, detector_rows, detector_channels) documented example (180, 16, 1024); gantry angles (total_views,); CT geometry (SOD, SDD, pixel size, voxel size); ART iteration count + relaxation parameter |
+| Algorithm | Algebraic Reconstruction Technique (ART) iterative, cone-beam forward projection + trilinear interpolation |
 | Outputs | 3D volume (Nz, Ny, Nx), saved as ART_reconstructed_volume.npy; single-slice visualization |
 | Status | Core math/geometry implemented and tested on synthetic phantom only; not yet run on real pipeline data |
 | Validation approach (team's own) | Shape/NaN checks, synthetic-phantom round-trip comparison, projection-error monitoring across iterations |
@@ -124,7 +124,7 @@ Radiation Dose Measurement — independent track
 | Inputs (intended final) | Reconstructed 3D chest CT volume from the Reconstruction module |
 | Algorithm | BM3D denoising (baseline); 3D U-Net planned for later |
 | Outputs | Denoised slice/volume + PSNR, SSIM, RMSE, MAE |
-| Status | 2D BM3D prototype working on synthetic noise only; not yet connected to real Reconstruction output (see Gap 6) |
+| Status | 2D BM3D prototype working on synthetic noise only; not yet connected to real Reconstruction output |
 
 ### 4.6 Radiation Dose Measurement
 | | |
@@ -133,7 +133,7 @@ Radiation Dose Measurement — independent track
 | Physics | Geant4 Monte Carlo photon transport; photon-fate classification (absorbed/scattered/transmitted/unclassified) |
 | Outputs | Total energy deposited (MeV), absorbed dose (D = E_dep/m, in Gy), 3D voxel energy/dose distribution |
 | Sample result | 10,000 photons -> 555.643 MeV deposited, 27kg phantom, dose 3.297e-12 Gy |
-| Status | Core Monte Carlo + voxel scoring implemented; not yet using the shared CT geometry, dummy cylinder phantom, or a rotating source (see Gap 3) |
+| Status | Core Monte Carlo + voxel scoring implemented; not yet using the shared CT geometry, dummy cylinder phantom, or a rotating source |
 | Validation approach (team's own) | Photon conservation (N_absorbed+scattered+transmitted+unclassified ~= N_primary); energy-sum consistency; dose-formula check; voxel dimension/mass checks |
 
 ---

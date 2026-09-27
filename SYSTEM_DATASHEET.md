@@ -72,7 +72,7 @@ these values unless a change is logged in the Change Log below.
 ## 4. Reference System 2 — GE Healthcare
 *(Source: GE HealthCare Revolution CT / Apex Reference Datasheet, provided to the project team)*
 
-> **Note:** Unlike the Siemens Force, the GE Revolution CT is **single-source** —
+> **Note:** Unlike the Siemens Force, the GE Revolution CT is **single-source**
 > architecturally closer to our simulated system. Where the two references
 > disagree, prefer this one for resolving single-source-specific design
 > questions (detector layout, tube configuration).

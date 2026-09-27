@@ -116,21 +116,20 @@ properly cited.
 ## 6. X-ray Source Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| kVp (operating) |  |  |
+| kVp (operating) | 50-120 | - |
 | Focal spot size | 0.6 mm radius | Defines the spatial extent of the X-ray emission region at the anode target |
-| Anode angle |  | Determines the effective focal spot size and contributes to the heel effect |
 | Target material | Tungsten (W) | High atomic number (Z = 74); commonly used for X-ray tube targets because of its high X-ray production efficiency and high melting point |
 | Added filtration | 4 mm Aluminum (Al) | Removes a significant portion of low-energy photons and hardens the X-ray beam |
 
 ## 7. Detector Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| Detector type | Scintillator (EID) | Scintillator vs photon-counting — **ask Detector team** |
-| Number of physical rows | 64 | Siemens ref (single array): 192 rows — use as an upper-bound reference, not a target |
-| Pixel pitch | 0.625mm | **ask Detector team** |
-| z-coverage at isocenter | TBD | Siemens single-array equivalent ≈ 28.8mm (57.6/2) — reference only |
-| In-plane channels | 888 single array | Siemens ref: 3,120 total (dual-array) |
-| Target in-plane resolution | TBD | Siemens ref: 0.24 mm (22–32 lp/cm @ 0% MTF) |
+| Detector type | Energy Integrating | Label recorded in metadata; tells downstream code/teams this detector sums total energy per pixel rather than counting individual photons |
+| Number of physical rows | 64 | Number of detector rows along the z-axis (patient long axis); sets how many CT slices are acquired per rotation |
+| Pixel pitch | 0.625mm | - |
+| z-coverage at isocenter | 40 | Beam collimation width at the detector; recorded in metadata as the z-coverage the detector is exposed to |
+| In-plane channels | 888 single array | Number of detector elements across the fan angle (in-plane); sets the width of each sinogram row and the in-plane sampling density |
+| Target in-plane resolution | 0.365 | Requires the same SDD/SAD magnification factor to convert detector-plane pixel pitch (0.625mm) into an isocenter-referenced resolution (lp/cm at 0% MTF) |
 
 ## 8. Tissue Interaction / Phantom Specifications
 | Parameter | Value | Notes |

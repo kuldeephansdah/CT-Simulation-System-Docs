@@ -48,7 +48,7 @@ Post Processing
   3D U-Net planned.
   Output: denoised volume + PSNR/SSIM/RMSE/MAE metrics
 
-Radiation Dose Measurement — independent track
+Radiation Dose Measurement : independent track
   Geant4/C++ Monte Carlo, NOT yet fed by the shared CT Configuration or
   the dummy cylinder phantom.  
   Own standalone 30x30x30 cm water phantom, 10x10x10 voxel grid.

@@ -7,7 +7,7 @@ contracts, and current implementation status of the CT simulation pipeline.
 Where the System Datasheet defines *what physical system* we're simulating,
 this TRD defines *how the software is built* and *how the 7 modules talk to
 each other*. Content below reflects the actual current state of each team's
-repository as of the date above — not an idealized target.
+repository as of the date above not an idealized target.
 
 ---
 

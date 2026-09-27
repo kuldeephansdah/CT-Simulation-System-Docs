@@ -30,7 +30,7 @@ Full architecture, data contracts, and current integration status are in
 | File | Contents |
 |---|---|
 | `SYSTEM_DATASHEET.md` | Reference system specs (Siemens/GE datasheets) vs. our actual simulated configuration |
-| `TRD.md` | Technical architecture, module interfaces, data contracts, known integration gaps |
+| `TRD.md` | Technical architecture, module interfaces |
 | `PRD.md` | Product goals, scope, success criteria, risks, milestones |
 
 ## Team Repositories
@@ -53,4 +53,4 @@ Full architecture, data contracts, and current integration status are in
   resolved before a full end-to-end run.
 
 ## License
-Academic project — no license specified yet.
+Academic project : no license specified yet.

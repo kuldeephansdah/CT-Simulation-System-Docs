@@ -87,16 +87,16 @@ these values unless a change is logged in the Change Log below.
 | Display FOV | 500.0 mm | 500 mm (primary sFOV) |  |
 | Rotation time | 0.28 s | 0.25 s (minimal) |  |
 | Rotation angle | 360° | 360° |  |
-| Views per rotation | 984 | — |  |
+| Views per rotation | 984 | - |  |
 | Tube voltage (kVp) | 120.0 | 70–150 (range) |  |
 | Tube current | 200.0 mA | 20–1300 mA/tube (range) |  |
 | Tube current range | 60–660 mA | 20–1300 mA/tube |  |
-| Exposure time | 1.0 s | — |  |
+| Exposure time | 1.0 s | - |  |
 | Pitch | 0.516 | 0.15–3.2 (range) |  |
-| Collimation | 40.0 mm | — (57.6mm z-cov, dual) |  |
+| Collimation | 40.0 mm | - (57.6mm z-cov, dual) |  |
 | Scan range | 350.0 mm | up to 2000 mm (max) |  |
-| TCM enabled | Yes | — |  |
-| TCM modulation depth | 25% | — |  |
+| TCM enabled | Yes | - |  |
+| TCM modulation depth | 25% | - |  |
 
 **Derived parameters** (computed with the same formulas as the config module):
 | Parameter | Formula | Value |

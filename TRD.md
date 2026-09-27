@@ -18,39 +18,39 @@ CT Configuration (shared geometry/protocol parameters: SID, SDD, kVp,
 pitch, rotation, TCM — see System Datasheet Section 5)
         |  (feeds parameters to every stage below)
         v
-X-ray Source (Task 01)
+X-ray Source 
   Generates photon_positions, photon_directions, photon_energies,
   photon_weight per view.
         |
         v
-Tissue Interaction (Task 03)
+Tissue Interaction 
   Loads shared config + dummy cylinder phantom -> deterministic ray
   tracing -> Beer-Lambert spectral attenuation -> ALREADY energy-integrates
   to a scalar detector signal per ray.
-  Output: view_<id>_detector.npy   [see Gap 1]
+  Output: view_<id>_detector.npy   
         |
         v
-Detector (Task 04)
+Detector 
   Expects raw photon fluence per energy bin (not pre-integrated) -> adds
   detector physics (efficiency, PSF blur, conversion gain, noise, dead
   pixels) -> outputs a clean handoff package.
-  Output: detector_handoff_package.npz + _metadata.json   [see Gap 1]
+  Output: detector_handoff_package.npz + _metadata.json   
         |
         v
-Reconstruction (Task 06)
+Reconstruction
   Algebraic Reconstruction Technique (ART), iterative, cone-beam forward
   model.
   Output: ART_reconstructed_volume.npy, shape (Nz, Ny, Nx)
         |
         v
-Post Processing (also labeled "Task 06" in its own repo — see Gap 2)
+Post Processing 
   BM3D denoising (currently prototyped on synthetic 256x256 2D slices) ->
   3D U-Net planned.
   Output: denoised volume + PSNR/SSIM/RMSE/MAE metrics
 
 Radiation Dose Measurement — independent track
   Geant4/C++ Monte Carlo, NOT yet fed by the shared CT Configuration or
-  the dummy cylinder phantom.   [see Gap 3]
+  the dummy cylinder phantom.  
   Own standalone 30x30x30 cm water phantom, 10x10x10 voxel grid.
   Output: deposited energy, absorbed dose, photon-fate classification,
   3D voxel dose map.

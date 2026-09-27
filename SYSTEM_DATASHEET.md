@@ -116,12 +116,11 @@ properly cited.
 ## 6. X-ray Source Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| kVp (operating) | 120.0 | Within Siemens Force's 70–150 kV range |
-| Focal spot size | TBD | Reference range: 0.4×0.5mm (S) / 0.8×1.1mm (L) — **ask X-ray Source team to pick and justify** |
-| Anode angle | TBD | **Ask X-ray Source team** |
-| Target material | TBD (commonly tungsten) | **Ask X-ray Source team** |
-| Added filtration | TBD | mm Al/Cu equivalent — **ask X-ray Source team** |
-| Spectrum model | TBD | Mono vs polychromatic — **ask X-ray Source team** |
+| kVp (operating) |  |  |
+| Focal spot size | 0.6 mm radius | Defines the spatial extent of the X-ray emission region at the anode target |
+| Anode angle |  | Determines the effective focal spot size and contributes to the heel effect |
+| Target material | Tungsten (W) | High atomic number (Z = 74); commonly used for X-ray tube targets because of its high X-ray production efficiency and high melting point |
+| Added filtration | 4 mm Aluminum (Al) | Removes a significant portion of low-energy photons and hardens the X-ray beam |
 
 ## 7. Detector Specifications
 | Parameter | Value | Notes |

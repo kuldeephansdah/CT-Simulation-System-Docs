@@ -13,7 +13,7 @@ across 7 independently-owned modules and integrated into one pipeline.
 
 ## What This Repo Is
 This repository holds the **project-level documentation** for
-NITK-CTSim — the shared reference material every team's module is built
+NITK-CTSim the shared reference material every team's module is built
 against. It does not contain the simulation code itself; each stage of
 the pipeline lives in its own team repository (linked below).
 

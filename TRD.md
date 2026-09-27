@@ -1,4 +1,4 @@
-# CT Simulation — Technical Requirements Document (TRD)
+# CT Simulation : Technical Requirements Document (TRD)
 **Project:** NITK-CTSim
 
 ## 1. Purpose & Scope

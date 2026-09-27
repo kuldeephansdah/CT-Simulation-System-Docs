@@ -1,4 +1,4 @@
-# NITK-CTSim — CT Simulation Project
+# NITK-CTSim : CT Simulation Project
 
 A from-scratch, educational simulation of the full computed-tomography
 imaging chain: X-ray generation, tissue interaction, detection,

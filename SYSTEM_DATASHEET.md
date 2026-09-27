@@ -163,12 +163,12 @@ properly cited.
 ## 11. Radiation Dose Measurement Specifications
 | Parameter | Value | Notes |
 |---|---|---|
-| Dose metrics computed | TBD | CTDIvol / DLP / effective dose — **ask Dose team** |
-| Reference dose phantom | TBD | e.g. 16 cm / 32 cm CTDI phantom equivalent |
-| Method | TBD | Analytical vs Monte Carlo |
+| Dose metrics computed | CTDI100 (centre): 0.69811 nGy, CTDI100 (peripheral mean): 0.90622 nGy, CTDIw: 0.83685 nGy, CTDIvol: 0.83685 nGy, DLP: 12.5527 nGy·cm | Calculated for 100,000 primary photons; pitch = 1 and scan length = 15 cm |
+| Reference dose phantom | Solid PMMA cylinder: 160 mm diameter × 150 mm length, Mean absorbed dose: 0.09054 nGy | G4_PLEXIGLASS; density 1.19 g/cm3; mass 3.58896 kg |
+| Method | Monte Carlo simulation using Geant4 11.4.2 | Livermore electromagnetic physics with a rotating 120 kVp polychromatic X-ray source |
+| Effective Dose | Not calculated / Not reported | The simulation uses a homogeneous PMMA phantom and does not provide organ/tissue-specific doses |
 
 ## 12. Change Log
 | Date | Change | Author |
 |---|---|---|
-| YYYY-MM-DD | Initial datasheet created from CT Configuration repo defaults | <your name> |
-| YYYY-MM-DD | Added Siemens SOMATOM Force reference datasheet (Section 3) and comparison table (Section 5) | <your name> |
+| 27-09-2026 | Updated radiation dose measurement specifications with calculated values and added details about the reference dose phantom and method used | Kuldeep Hansdah, Subham Kumar Beura |

@@ -33,7 +33,7 @@ these values unless a change is logged in the Change Log below.
 | Max scan speed | 737 mm/s | Flash Spiral mode only |
 | Source-to-Isocenter (R) | 53.5 cm | - |
 | Source-to-Detector (D) | 97.6 cm | - |
-| Temporal resolution | 66 ms | Dual-source specific — N/A for our single-source sim |
+| Temporal resolution | 66 ms | Dual-source specific N/A for our single-source sim |
 
 ### 3.2 X-Ray Generation (Dual Vectron™)
 | Parameter | Value |

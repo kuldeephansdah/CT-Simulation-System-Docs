@@ -1,4 +1,4 @@
-# CT Simulation — Product Requirements Document (PRD)
+# CT Simulation : Product Requirements Document (PRD)
 **Project:** NITK-CTSim
 
 ## 1. Product Overview

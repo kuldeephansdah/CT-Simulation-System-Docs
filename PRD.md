@@ -3,7 +3,7 @@
 
 ## 1. Product Overview
 NITK-CTSim is an educational, from-scratch simulation of the full
-computed-tomography imaging chain — from X-ray generation through tissue
+computed-tomography imaging chain from X-ray generation through tissue
 interaction, detection, reconstruction, post-processing, and radiation dose
 estimation. It is not intended to reproduce any specific commercial
 scanner; instead it models a physically plausible CT system, informed in
@@ -14,9 +14,9 @@ that together form one pipeline.
 ## 2. Problem Statement
 Understanding how a CT scanner turns X-ray photons into a diagnostic image
 requires reasoning across several distinct physics and engineering
-domains — source physics, tissue attenuation, detector electronics,
+domains source physics, tissue attenuation, detector electronics,
 tomographic reconstruction math, image processing, and radiation
-dosimetry — that are rarely built end-to-end by one team. This project
+dosimetry that are rarely built end-to-end by one team. This project
 exists to build and integrate a working version of that full chain, so
 each contributing team gains hands-on depth in one stage while the
 combined pipeline demonstrates the complete process.
@@ -59,7 +59,7 @@ combined pipeline demonstrates the complete process.
 - Use of a dummy cylindrical voxel phantom as an interim test object.
 - System parameters partially grounded in real reference scanner
   datasheets, documented transparently as such.
-- Per-module validation (each team already defines its own checks — see
+- Per-module validation (each team already defines its own checks see
   TRD Section 4) plus a project-level validation plan (separate
   deliverable).
 - The 4 documentation deliverables requested by the professor.
@@ -73,7 +73,7 @@ combined pipeline demonstrates the complete process.
   educational implementation (as the Reconstruction team's own README
   notes, performance on real clinical-sized datasets is not a current
   goal).
-- A user-facing application or GUI — outputs are files (.npy, .npz, .csv,
+- A user-facing application or GUI outputs are files (.npy, .npz, .csv,
   .json) consumed by the next stage or inspected directly.
 
 ## 6. Key Deliverables / Features by Module
@@ -108,7 +108,7 @@ for full detail):
   + transmitted + unclassified) approximately equal the number of primary
   photons; voxel-summed energy matches the independently reported total.
 - **Pipeline-level (new):** data can flow from one module's real output
-  into the next module's real input without manual reformatting — this is
+  into the next module's real input without manual reformatting this is
   currently blocked by the gaps listed in TRD Section 6 and is the key
   project-level acceptance bar before end-to-end integration is
   considered done.
@@ -120,7 +120,7 @@ for full detail):
   hard external dependency with no controlled timeline.
 - System parameters are a deliberate mix of values informed by real
   scanners (Siemens SOMATOM Force, GE HealthCare Revolution CT) and values
-  chosen independently by the team where manufacturer data isn't public —
+  chosen independently by the team where manufacturer data isn't public
   this is documented in full in SYSTEM_DATASHEET.md and is not to be
   represented as an exact commercial reproduction.
 - The Radiation Dose Measurement module depends on Geant4/C++ tooling
@@ -136,12 +136,12 @@ for full detail):
 
 ## 10. Milestones & Timeline
 
-| Phase | Description | Target Date |
+| Phase | Description |
 |---|---|---|
-| Phase 1 | Deliverables complete: System Datasheet, TRD, PRD, Validation Plan | |
-| Phase 2 | Dummy-cylinder pipeline runs end-to-end, module to module | |
-| Phase 3 | Real voxel model integrated once provided by professor | |
-| Phase 4 | Final validation run, results write-up, and presentation | |
+| Phase 1 | Deliverables complete: System Datasheet, TRD, PRD, Validation Plan |
+| Phase 2 | Dummy-cylinder pipeline runs end-to-end, module to module |
+| Phase 3 | Real voxel model integrated once provided by professor |
+| Phase 4 | Final validation run, results write-up, and presentation |
 
 ## 11. Change Log
 | Date | Change | Author |

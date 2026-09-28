@@ -137,7 +137,7 @@ for full detail):
 ## 10. Milestones & Timeline
 
 | Phase | Description |
-|---|---|---|
+|---|---|
 | Phase 1 | Deliverables complete: System Datasheet, TRD, PRD, Validation Plan |
 | Phase 2 | Dummy-cylinder pipeline runs end-to-end, module to module |
 | Phase 3 | Real voxel model integrated once provided by professor |
